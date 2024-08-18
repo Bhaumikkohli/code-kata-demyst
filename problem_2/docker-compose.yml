@@ -1,0 +1,44 @@
+services:
+  csv_generator_1:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      - OUTPUT_FILE=/app/data/output_gen_1.csv
+    command: ["sh", "-c", "python csv_processor.py 10000000 generate /app/data/output_gen_1.csv && cat /app/data/output_gen_1.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_1.csv && cat /app/data/output_gen_1_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
+    networks:
+      - my_network
+
+  csv_generator_2:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      - OUTPUT_FILE=/app/data/output_gen_2.csv
+    command: ["sh", "-c", "python csv_processor.py 10000000 generate /app/data/output_gen_2.csv && cat /app/data/output_gen_2.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_2.csv && cat /app/data/output_gen_2_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
+    networks:
+      - my_network
+    
+  csv_generator_3:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      - OUTPUT_FILE=/app/data/output_gen_3.csv
+    command: ["sh", "-c", "python csv_processor.py 10000000 generate /app/data/output_gen_3.csv && cat /app/data/output_gen_3.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_3.csv && cat /app/data/output_gen_3_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
+    networks:
+      - my_network
+
+  csv_generator_4:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      - OUTPUT_FILE=/app/data/output_gen_4.csv
+    command: ["sh", "-c", "python csv_processor.py 10000000 generate /app/data/output_gen_4.csv && cat /app/data/output_gen_4.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_4.csv && cat /app/data/output_gen_4_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
