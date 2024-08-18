@@ -25,7 +25,7 @@ services:
       - ./data:/app/data
     environment:
       - OUTPUT_FILE=/app/data/output_gen_3.csv
-    command: ["sh", "-c", "python csv_processor.py 1000000 generate /app/data/output_gen_3.csv && cat /app/data/output_gen_3.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_3.csv && cat /app/data/output_gen_3_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
+    command: ["sh", "-c", "python csv_processor.py 10000000 generate /app/data/output_gen_3.csv && cat /app/data/output_gen_3.csv >> /app/data/output_gen_merged.csv && python csv_processor.py 0 anonymize /app/data/output_gen_3.csv && cat /app/data/output_gen_3_anonymize.csv >> /app/data/output_anonymize_merged.csv"]
     networks:
       - my_network
 
