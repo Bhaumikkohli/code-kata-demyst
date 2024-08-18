@@ -25,3 +25,7 @@ To run the Docker image and get the outpu, follow the steps:
 `docker cp <containerID>:/parsed_output.csv parsed_output.csv`
 
 `docker cp <containerID>:/fixed_width_text.txt fixed_width_text.txt`
+
+7. Don't forget to stop the docker:
+
+`docker stop <container_id>`
