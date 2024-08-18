@@ -11,7 +11,7 @@ echo "csv_generator services are running..."
 
 # Wait for the csv_generator services to complete
 echo "Waiting for csv_generator services to complete..."
-docker-compose -f docker-compose.gen.yml down
+docker-compose -f docker-compose.yml down
 echo "csv_generator services have completed."
 
 # Total size of generated CSV based on generated content.
